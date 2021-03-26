@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ambientes de Desenvolvimento de Software">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Monteiro Lobato">
+
+    <style>   
+        * {
+        box-sizing: border-box;
+        }
+
+        body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        }
+
+        .cabecalho {
+        overflow: clip;
+        background-color: rgb(168, 15, 110);
+        color: rgb(53, 48, 48);
+        text-align: center;
+        }
+
+       .corpo {
+        float: left: ;;
+        padding: 30px;
+        width: 100%;
+        text-align: center;
+        }
+    </style>
+
+    <script>
+      function modificar() {
+        var name = document.forms["modificar"]["fullname"].value; 
+        name = name.trim();
+                   
+        
+        var vetorName = [];
+        vetorName = name.split(" "); 
+               
+        var fisrtname = vetorName[0]; 
+                
+        var i = vetorName.length -1; 
+        var lastname = vetorName[i]; 
+                
+        var middlename = vetorName.slice(1,i); 
+                
+        for (i = 0; i < middlename.length; i++) { 
+            var temp = middlename[i].split("");
+            middlename[i] = temp[0];            
+        }
+
+        
+        var notacaoAbnt = lastname.toUpperCase() + ", " + fisrtname + " " + middlename.join(" ");    
+        
+        document.forms["modificar"]["notacaoAbnt"].value = notacaoAbnt;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="cabecalho">
+        <h1> ABNT </h1>
+    </div>
+
+    <div class ="corpo">
+        <fieldset style="width: 40%; margin-left: 30%">
+        <form name="modificar">
+            
+            <p>Nome: <input type="text" name="fullname" size="40" style="text-align: right;" > </p>       
+            <p>Notação ABNT: <input type="text" name="notacaoAbnt" maxlength="100" size="30" style="text-align: right;"> </p>
+            <p><input type="button" value="modificar" name="btmodificar" onclick="modificar()"> </p>
+            
+        </form>
+        </fieldset>
+    </div>
+  </body>
+</html>
